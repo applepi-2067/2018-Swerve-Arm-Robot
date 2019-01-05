@@ -1,0 +1,1209 @@
+automode 0 //do nothing
+end
+
+automode 1 //drive forward
+groupex {
+drive stop
+drive to y,10
+drive reset
+}
+end
+
+automode 2 //switch center
+lift to switch
+wrist to mid
+if switch = R {
+groupex {
+drive stop
+drive to y,9
+drive to x,4
+drive reset
+}
+}
+if switch = L {
+groupex {
+drive stop
+drive to y,9
+drive to x,-5
+drive reset
+}
+}
+harvest at -0.75
+wait for 3
+harvest stop
+groupex {
+drive stop
+drive to y,7
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 3 //2 switch center
+lift to switch
+wrist to mid
+if switch = R {
+groupex {
+drive stop
+drive to y,9.3;for 6
+drive to x,5;for 6
+drive reset
+}
+}
+if switch = L {
+groupex {
+drive stop
+drive to y,9.3;for 6
+drive to x,-6;for 6
+drive reset
+}
+}
+harvest at -0.7
+wait for 0.5
+harvest stop
+if switch = R {
+groupex {
+drive stop
+drive to y,5.5
+drive to x,2.2
+drive to z,-45
+drive reset
+execute {
+wait for 0.4
+lift to low
+wrist to low
+}
+}
+}
+if switch = L {
+groupex {
+drive stop
+drive to y,4.8
+drive to x,-4
+drive to z,45
+drive reset
+execute {
+wait for 0.4
+lift to low
+wrist to low
+}
+}
+}
+wait for 0.6
+harvest at 1
+if switch = R {
+groupex {
+drive stop
+drive to y,6.6;for 3
+drive to x,0.3;for 3
+drive reset
+}
+}
+if switch = L {
+groupex {
+drive stop
+drive to y,6.6;for 3
+drive to x,-1.6;for 3
+drive reset
+}
+}
+lift to switch
+wrist to mid
+harvest stop
+if switch = R {
+groupex {
+drive stop
+drive to x,3
+drive reset
+}
+groupex {
+drive stop
+drive to z,0
+drive to y,9.3
+drive to x,3.5
+drive reset
+}
+}
+if switch = L {
+groupex {
+drive stop
+drive to x,-4
+drive reset
+}
+groupex {
+drive stop
+drive to z,0
+drive to y,9.3
+drive to x,-4.7
+drive reset
+}
+}
+drive reset
+drive to y,9.4;for 0.8
+harvest at -0.6
+wait for 0.5
+harvest stop
+groupex {
+drive stop
+drive to y,7
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 4 //scale left
+drive stop
+reset gyro 90
+//drive to z,90
+//drive reset
+lift to low
+wrist to high
+if scale = L {
+groupex {
+drive stop
+drive to y,25.5
+drive reset
+execute {
+wait for 2
+lift to high
+}
+}
+harvest at -0.6
+wait for 2
+harvest stop
+}
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 5 //scale right
+drive stop
+reset gyro -90
+drive to z,-90
+drive reset
+lift to low
+wrist to high
+if scale = R {
+groupex {
+drive stop
+drive to y,25.5
+drive reset
+execute {
+wait for 3
+lift to high
+}
+}
+harvest at -0.6
+wait for 2
+harvest stop
+}
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 6 //scale cross left
+lift to low
+wrist to high
+if scale = L {
+groupex {
+drive stop
+drive to y,25.5
+drive to z,90
+drive reset
+execute {
+wait for 2
+lift to high
+}
+}
+}
+if scale = R {
+groupex {
+drive stop
+drive to y,19.5
+drive reset
+}
+groupex {
+drive stop
+drive to x,17.8
+drive reset
+}
+lift to high
+wait for 1
+groupex {
+drive stop
+drive to y,22
+drive to z,-30
+drive reset
+}
+}
+harvest at -0.6
+wait for 2
+harvest stop
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 7 //scale cross right
+lift to low
+wrist to high
+if scale = R {
+groupex {
+drive stop
+drive to y,25.5
+drive to z,-90
+drive reset
+execute {
+wait for 2
+lift to high
+}
+}
+}
+if scale = L {
+groupex {
+drive stop
+drive to y,19.5
+drive reset
+}
+groupex {
+drive stop
+drive to x,-17.8
+drive reset
+}
+lift to high
+wait for 1
+groupex {
+drive stop
+drive to y,22
+drive to z,30
+drive reset
+}
+}
+harvest at -0.6
+wait for 2
+harvest stop
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 8 //2 scale cross left
+harvest stop
+lift to low
+wrist to high
+if scale = L {
+groupex {
+drive stop
+drive to y,22
+drive to z,30
+drive to x,1
+drive reset
+execute {
+wait for 2
+lift to high
+}
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wrist to low
+groupex {
+drive stop
+drive to y,18.5
+drive to z,130
+drive to x,1.2
+drive reset
+execute {
+wait for 0.5
+harvest at 1
+}
+}
+wait for 0.3
+harvest stop
+lift to high
+wrist to high
+wait for 0.2
+groupex {
+drive stop
+drive to x,1
+drive to z,30
+drive reset
+}
+groupex {
+drive stop
+drive to y,22
+drive reset
+}
+}
+if scale = R {
+groupex {
+drive stop
+drive to y,19.5
+drive reset
+}
+groupex {
+drive stop
+drive to x,17.8
+drive reset
+}
+lift to high
+wait for 1
+groupex {
+drive stop
+drive to y,22
+drive to z,-30
+drive reset
+}
+}
+harvest at -0.6
+wait for 2
+harvest stop
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 9 //2 scale cross right
+lift to low
+wrist to high
+if scale = R {
+groupex {
+drive stop
+drive to y,22
+drive to z,-30
+drive to x,-1
+drive reset
+execute {
+wait for 2
+lift to high
+}
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wrist to low
+groupex {
+drive stop
+drive to y,18.5
+drive to z,-130
+drive to x,-1.2
+drive reset
+execute {
+wait for 0.5
+harvest at 1
+}
+}
+wait for 0.3
+harvest stop
+lift to high
+wrist to high
+wait for 0.2
+groupex {
+drive stop
+drive to x,-1
+drive to z,-30
+drive reset
+}
+groupex {
+drive stop
+drive to y,22
+drive reset
+}
+}
+if scale = L {
+groupex {
+drive stop
+drive to y,19.4
+drive reset
+}
+groupex {
+drive stop
+drive to x,-17.8
+drive reset
+}
+lift to high
+wait for 1
+groupex {
+drive stop
+drive to y,22
+drive to z,30
+drive reset
+}
+}
+harvest at -0.6
+wait for 2
+harvest stop
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 10 //2 scale left
+harvest stop
+lift to low
+wrist to high
+if scale = L {
+groupex {
+drive stop
+drive to y,22
+drive to z,30
+drive to x,1
+drive reset
+execute {
+wait for 3
+lift to high
+}
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wrist to low
+groupex {
+drive stop
+drive to y,18.5
+drive to z,130
+drive to x,1.2
+drive reset
+execute {
+wait for 0.5
+harvest at 1
+}
+}
+wait for 0.3
+harvest stop
+lift to high
+wrist to high
+wait for 0.2
+groupex {
+drive stop
+drive to x,1
+drive to z,30
+drive reset
+}
+groupex {
+drive stop
+drive to y,22
+drive reset
+}
+harvest at -0.6
+wait for 2
+harvest stop
+}
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 11 //2 scale right
+lift to low
+wrist to high
+if scale = R {
+groupex {
+drive stop
+drive to y,22
+drive to z,-30
+drive to x,-1
+drive reset
+execute {
+wait for 3
+lift to high
+}
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wrist to low
+groupex {
+drive stop
+drive to y,18.5
+drive to z,-130
+drive to x,-1.2
+drive reset
+execute {
+wait for 0.5
+harvest at 1
+}
+}
+wait for 0.3
+harvest stop
+lift to high
+wrist to high
+wait for 0.2
+groupex {
+drive stop
+drive to x,-1
+drive to z,-30
+drive reset
+}
+groupex {
+drive stop
+drive to y,22
+drive reset
+}
+harvest at -0.6
+wait for 2
+harvest stop
+}
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 12 //3 scale cross left
+harvest stop
+lift to low
+wrist to high
+if scale = L {
+groupex {
+drive stop
+drive to y,23.5
+drive to z,30
+drive to x,2
+drive reset
+execute {
+wait for 1
+lift to high
+}
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wait for 0.2
+wrist to low
+groupex {
+drive stop
+drive to y,20
+drive to z,150
+drive to x,3.2
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+groupex {
+drive stop
+drive to y,18.5
+drive to x,3.6
+drive reset
+}
+wait for 0.8
+lift to high
+wrist to high
+wait for 0.4
+harvest stop
+groupex {
+drive stop
+drive to x,2
+drive to z,45
+drive to y,23.5
+drive reset
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wrist to low
+groupex {
+drive stop
+drive to z,150
+drive to x,6
+drive to y,20
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+drive to y,18.5
+wait for 0.2
+lift to high
+wrist to high
+wait for 0.2
+harvest stop
+groupex {
+drive stop
+drive to x,2
+drive to z,45
+drive to y,23.5
+drive reset
+}
+}
+if scale = R {
+groupex {
+drive stop
+drive to y,20
+drive reset
+}
+groupex {
+drive stop
+drive to x,20
+drive reset
+}
+lift to high
+groupex {
+drive stop
+drive to y,23.5
+drive to z,-30
+drive reset
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wait for 0.2
+wrist to low
+groupex {
+drive stop
+drive to y,19.5
+drive to z,-150
+drive to x,18.6
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+drive to y,18.5
+wait for 0.4
+lift to high
+wrist to high
+harvest stop
+groupex {
+drive stop
+drive to x,20
+drive to y,23.5
+drive to z,-45
+drive reset
+}
+}
+harvest at -0.6
+wait for 0.5
+harvest stop
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 13 //3 scale cross right
+harvest stop
+lift to low
+wrist to high
+if scale = R {
+groupex {
+drive stop
+drive to y,23.5
+drive to z,-30
+drive to x,-2
+drive reset
+execute {
+wait for 1
+lift to high
+}
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wait for 0.2
+wrist to low
+groupex {
+drive stop
+drive to y,20
+drive to z,-150
+drive to x,-3.2
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+groupex {
+drive stop
+drive to y,18.5
+drive to x,-4
+drive reset
+}
+wait for 0.8
+lift to high
+wrist to high
+wait for 0.4
+harvest stop
+groupex {
+drive stop
+drive to x,-2
+drive to z,-45
+drive to y,23.5
+drive reset
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wrist to low
+groupex {
+drive stop
+drive to z,-150
+drive to x,-6
+drive to y,19.5
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+drive to y,18.5
+wait for 0.2
+lift to high
+wrist to high
+wait for 0.2
+harvest stop
+groupex {
+drive stop
+drive to x,-2
+drive to z,-45
+drive to y,23.5
+drive reset
+}
+}
+if scale = L {
+groupex {
+drive stop
+drive to y,20.2
+drive reset
+}
+groupex {
+drive stop
+drive to x,-20
+drive reset
+}
+lift to high
+groupex {
+drive stop
+drive to y,23.5
+drive to z,30
+drive reset
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wait for 0.2
+wrist to low
+groupex {
+drive stop
+drive to y,19.5
+drive to z,150
+drive to x,-18.6
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+drive to y,18.5
+wait for 0.4
+lift to high
+wrist to high
+harvest stop
+groupex {
+drive stop
+drive to x,-20.2
+drive to y,23.5
+drive to z,45
+drive reset
+}
+}
+harvest at -0.6
+wait for 0.5
+harvest stop
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 14 //3 scale left
+harvest stop
+lift to low
+wrist to high
+if scale = L {
+groupex {
+drive stop
+drive to y,22.5
+drive to z,30
+drive to x,1
+drive reset
+execute {
+wait for 2
+lift to high
+}
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wait for 0.1
+wrist to low
+groupex {
+drive stop
+drive to y,19.7
+drive to z,150
+drive to x,1.3
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+drive to y,18.5
+wait for 0.8
+lift to high
+wrist to high
+wait for 0.4
+harvest stop
+groupex {
+drive stop
+drive to x,1.2
+drive to z,35
+drive to y,22.5
+drive reset
+}
+harvest at -0.8
+wait for 0.2
+harvest stop
+lift to low
+wrist to low
+groupex {
+drive stop
+drive to z,150
+drive to x,4.8
+drive to y,19.5
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+drive to y,18.5
+wait for 0.2
+lift to high
+wrist to high
+wait for 0.2
+harvest stop
+groupex {
+drive stop
+drive to x,2
+drive to z,45
+drive to y,22.75
+drive reset
+}
+harvest at -0.6
+wait for 0.5
+harvest stop
+}
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 15 //3 scale right
+harvest stop
+lift to low
+wrist to high
+if scale = R {
+groupex {
+drive stop
+drive to y,23.5
+drive to z,-30
+drive to x,-2
+drive reset
+execute {
+wait for 1
+lift to high
+}
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wait for 0.2
+wrist to low
+groupex {
+drive stop
+drive to y,20
+drive to z,-150
+drive to x,-3.2
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+groupex {
+drive to y,18.5
+drive to x,-3.6
+drive reset
+}
+wait for 0.8
+lift to high
+wrist to high
+wait for 0.4
+harvest stop
+groupex {
+drive stop
+drive to x,-2
+drive to z,-45
+drive to y,23.5
+drive reset
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wrist to low
+groupex {
+drive stop
+drive to z,-150
+drive to x,-6
+drive to y,19.5
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+drive to y,18.5
+wait for 0.2
+lift to high
+wrist to high
+wait for 0.2
+harvest stop
+groupex {
+drive stop
+drive to x,-2
+drive to z,-45
+drive to y,23.5
+drive reset
+}
+harvest at -0.6
+wait for 0.5
+harvest stop
+}
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
+
+automode 16 //3 scale cross left camera based
+harvest stop
+lift to low
+wrist to high
+if scale = L {
+groupex {
+drive stop
+drive to y,22.5
+drive to z,30
+drive to x,1
+drive reset
+execute {
+wait for 2
+lift to high
+}
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wait for 0.1
+wrist to low
+groupex {
+drive stop
+drive to y,19.7
+drive to z,150
+drive to x,1.3
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+groupex {
+drive stop
+vision harvest;for 1
+drive reset
+}
+lift to high
+wrist to high
+wait for 0.2
+harvest stop
+groupex {
+drive stop
+drive to x,1.2
+drive to z,45
+drive to y,22
+drive reset
+}
+harvest at -0.8
+wait for 0.2
+harvest stop
+lift to low
+wrist to low
+groupex {
+drive stop
+drive to z,150
+drive to x,4.7
+drive to y,19.5
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+groupex {
+drive stop
+vision harvest;for 1
+drive reset
+}
+lift to high
+wrist to high
+wait for 0.2
+harvest stop
+groupex {
+drive stop
+drive to x,2
+drive to z,45
+drive to y,22.75
+drive reset
+}
+}
+if scale = R {
+groupex {
+drive stop
+drive to y,19.9
+drive reset
+}
+groupex {
+drive stop
+drive to x,18.2
+drive reset
+}
+lift to high
+groupex {
+drive stop
+drive to y,22.75
+drive to z,-30
+drive reset
+}
+harvest at -1
+wait for 0.2
+harvest stop
+lift to low
+wait for 0.2
+wrist to low
+groupex {
+drive stop
+drive to y,20.25
+drive to z,-150
+drive to x,16.6
+drive reset
+execute {
+wait for 0.2
+harvest at 1
+}
+}
+drive to y,19.25
+wait for 0.4
+lift to high
+wrist to high
+harvest stop
+groupex {
+drive stop
+drive to x,18
+drive to y,22.75
+drive to z,-45
+drive reset
+}
+}
+harvest at -0.6
+wait for 0.5
+harvest stop
+groupex {
+drive stop
+drive to y,19
+drive reset
+}
+lift to low
+wrist to low
+drive stop
+end
